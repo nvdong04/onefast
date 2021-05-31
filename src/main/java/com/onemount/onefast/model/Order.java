@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,11 +33,14 @@ public class Order {
     @Column(name = "discount")
     private float discount;
 
-    @Column(name = "total_price")
+    @Transient
     private float totalPrice;
 
-    @Column(name = "payment_amount")
-    private float paymentAmount;
+    @Column(name = "payment_method", length = 100)  // Trả thẳng, trả góp
+    private String payment_method;
+
+    @Transient
+    private float deposit;
 
     @Column(name = "created_at")
     @Temporal(TemporalType.TIMESTAMP)

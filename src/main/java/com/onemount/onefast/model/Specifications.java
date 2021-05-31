@@ -30,5 +30,5 @@ public class Specifications {
     private String furniture;
 
     @Column(name = "smart_feature")
-    private String SmartFeature;
+    private String smartFeature;
 }

@@ -31,5 +31,4 @@ public class Showroom {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "showroom_id")
     private List<Car> cars;
-
 }
