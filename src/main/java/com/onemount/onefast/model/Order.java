@@ -2,11 +2,14 @@ package com.onemount.onefast.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,7 +21,7 @@ import lombok.NoArgsConstructor;
 
 
 @Entity
-@Table(name = "Order")
+@Table(name = "tb_order")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,6 +32,10 @@ public class Order {
 
     @Column(name = "user_id")
     private Long userId;
+
+    @OneToOne(cascade = CascadeType.MERGE, orphanRemoval = true)
+    @JoinColumn(name = "car_id")
+    private Car car;
 
     @Column(name = "discount")
     private float discount;

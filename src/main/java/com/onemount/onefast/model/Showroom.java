@@ -12,8 +12,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
-@Table(name = "showroom")
+@Table(name = "tb_showroom")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Showroom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,10 +32,10 @@ public class Showroom {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "status", columnDefinition = "TINYINT")
+    @Column(name = "status")
     private int status;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true)
     @JoinColumn(name = "showroom_id")
     private List<Car> cars;
 }

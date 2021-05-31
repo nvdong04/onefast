@@ -1,10 +1,13 @@
 package com.onemount.onefast.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -12,7 +15,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "booking_drive_test")
+@Table(name = "tb_booking_drive_test")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,6 +32,10 @@ public class BookingDriveTest {
 
     @Column(name = "email", length = 100)
     private String email;
+
+    @OneToOne(cascade = CascadeType.MERGE, orphanRemoval = true)
+    @JoinColumn(name = "car_id")
+    private Car car;
 
     @Column(name = "drive_date")
     private String driveDate;

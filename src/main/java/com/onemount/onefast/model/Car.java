@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -14,7 +16,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "cars")
+@Table(name = "tb_car")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -50,7 +52,7 @@ public class Car {
     @Column(name = "color",length = 50)
     private String color;
 
-    @Column(name = "quantity", columnDefinition = "DEFAUT 0")
+    @Column(name = "quantity")
     private int quantity;
 
     @Column(name = "status")
