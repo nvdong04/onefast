@@ -10,8 +10,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name = "tb_specifications")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Specifications {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,21 +28,24 @@ public class Specifications {
     @JoinColumn(name = "car_id")
     private Car car;
 
-    @Column(name = "battery")
-    private Long battery;
-
     @Column(name = "weight")
-    private Long weight;
+    private float weight;
 
-    @Column(name = "size")
-    private Long size;
+    @Column(name = "size", length = 100)
+    private String size;
 
-    @Column(name = "exterior")
-    private String exterior;
+    @Column(name = "fuel_tank_capacity", length = 30) // dung tích nhiên liệu eg: 85L
+    private String fuelTankCapacity;
 
-    @Column(name = "furniture")
-    private String furniture;
+    @Column(name = "engine", length = 30) // động cơ eg: 2.0L, 3.0L. 
+    private String Engine;
 
-    @Column(name = "smart_feature")
-    private String smartFeature;
+    @Column(name = "maximum_power", length = 30) //công suất tối đa eg: 250HP
+    private String maximumPower;
+
+    @Column(name = "maximum_torque",length = 30) //Mô-men soắn cực đại eg:350Nm
+    private String maximumTorque;
+
+    @Column(name = "automatic_transmission") // Hộp số tự động
+    private String automaticTransmission;
 }

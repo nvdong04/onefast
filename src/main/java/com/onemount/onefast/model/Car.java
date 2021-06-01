@@ -7,8 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -31,11 +29,8 @@ public class Car {
     @Column(name = "name", nullable = false, length = 100)
     private String name;
 
-    @Column(name = "thumnailURL")
-    private String thumnailURL;
-
-    @Column(name = "seating")
-    private int seating;
+    @Column(name = "seat_number")
+    private int seatNumber;
 
     @Column(name = "year_of_manufacture")
     private int yearOfManufacture;
@@ -43,7 +38,7 @@ public class Car {
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
-    @Column(name = "type", length = 50)
+    @Column(name = "type", length = 100)
     private String type;
 
     @Column(name = "version", length = 50)
@@ -52,9 +47,12 @@ public class Car {
     @Column(name = "color",length = 50)
     private String color;
 
-    @Column(name = "quantity")
+    @Column(name = "quantity", columnDefinition = "INT DEFAULT 0")
     private int quantity;
 
     @Column(name = "status")
     private int status;
+
+    @Column(name = "thumnailURL")
+    private String thumnailURL;
 }

@@ -1,0 +1,6 @@
+-- INSERT INTO tb_car(showroom_id,name,seat_number,year_of_manufacture,type,version,color,quantity,status,thumnailURL,description)
+-- -- VALUES (1,'VF-e34',5,2021,'Máy điện','1.0','Xám đen',10,1,'https://shop.vinfastauto.com/on/demandware.static/Sites-app_vinfast_vn-Site/-/default/dwd1d81acc/images/vfe34/Hinh-anh-dat-coc-xe-dien-VinFast-VFe34-mau-trang-Brahminy-White.png','aaa')
+-- INSERT INTO tb_car(showroom_id,name,seat_number,year_of_manufacture,type,version,color,quantity,status,thumnailURL,description)
+-- VALUES ('1','VF-e34','5','2021','Máy điện','1.0','Xám đen','10','1','ddd','aaa')
+-- INSERT INTO tb_specifications(car_id,weight,size,fuel_tank_capacity,engine,maximum_power,maximum_torque,automatic_transmission)
+-- VALUES (1,1490,'4940 x 1960 x 1773 (mm)','85 (L)','2.0L','228 HP','350 Nm','8-speed Automatic')

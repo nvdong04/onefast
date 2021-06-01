@@ -32,10 +32,15 @@ public class Showroom {
     @Column(name = "address")
     private String address;
 
+    @Column(name = "hotline")
+    private String hotline;
+
+    @Column(name = "model")
+    private int model;
+
+    @Column(name = "city")
+    private String city;
+
     @Column(name = "status")
     private int status;
-
-    @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true)
-    @JoinColumn(name = "showroom_id")
-    private List<Car> cars;
 }
