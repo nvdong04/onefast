@@ -26,7 +26,6 @@ public class Car implements Serializable{
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "car_id")
-    @JsonBackReference
     private List<ShowroomCar> showroomCars;
 
     @OneToOne(cascade = CascadeType.MERGE, orphanRemoval = true)
@@ -35,7 +34,6 @@ public class Car implements Serializable{
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "car_id")
-    @JsonBackReference
     private List<CarColor> carColors;
 
     @Column(name = "name", nullable = false, length = 100)

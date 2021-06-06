@@ -21,12 +21,10 @@ public class ShowroomCar {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    @JsonManagedReference
     private Showroom showroom;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    @JsonManagedReference
     private Car car;
 
     @Column(name = "quantity", columnDefinition = "INT DEFAULT 0")

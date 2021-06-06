@@ -21,7 +21,6 @@ public class CarColor {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    @JsonManagedReference
     private Car car;
 
     @Column(name = "name",length = 50)

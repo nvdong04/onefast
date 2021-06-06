@@ -1,10 +1,10 @@
-INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VinFast Landmark 81','Tầng L1, Vincom Centre Landmark 81, 208 Nguyễn Hữu Cảnh, Q. Bình Thạnh, Hồ Chí Minh','0981335512',1,'Hồ Chí Minh',1)
-INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VinFast - Chevrolet Đại Việt','Số 1 Đường Nguyễn Văn Linh, Phường Gia Thụy, Quận Long Biên, Thành phố Hà Nội','1900636903',3,'Hà Nội',1)
-INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VinFast Phạm Văn Đồng','Số 166 Phạm Văn Đồng, Phường Xuân Đỉnh, Quận Bắc Từ Liêm, Thành phố Hà Nội','0866391155',3,'Hà Nội',1)
-INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VIN3S Thủy Nguyên','Phố Mới, Đội 1, xã Tân Dương, huyện Thủy Nguyên, Hải Phòng','0904231009',2,'Hải Phòng',1)
-INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VIN3S Vũng Tàu','1-3 Nguyễn Lương Bằng, P. 9, TP. Vũng Tàu, Bà Rịa - Vũng Tàu','0933866989',2,'Bà Rịa - Vũng Tàu',1)
-INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VIN3S Phú Mỹ','328 Đường Độc Lập, Khu phố Quảng Phú, P. Phú Mỹ, TX. Phú Mỹ, Bà Rịa - Vũng Tàu','0902912022',4,'Bà Rịa - Vũng Tàu',1)
-INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VIN3S Phúc Yên','288 đường Hai Bà Trưng, tổ 4, P. Hùng Vương, TP. Phúc Yên, Vĩnh Phúc','0947105662',3,'Vĩnh Phúc',1)
-INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VIN3S Tuyên Quang','Tổ 10, P. Phan Thiết, TP. Tuyên Quang','0932118188',3,'Tuyên Quang',1)
-INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VIN3S Nghi Sơn','136,138 đường Quang Trung, P. Hải Hòa, Nghi Sơn, Thanh Hóa','0865723689',3,'Thanh Hóa',1)
-INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VIN3S Đại Từ','Phố Đình, Thị Trấn Hùng Sơn, Huyện Đại Từ, Thái Nguyên','0934967338',5,'Thái Nguyên',1)
+INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VinFast Landmark 81','Tầng L1, Vincom Centre Landmark 81, 208 Nguyễn Hữu Cảnh, Q. Bình Thạnh, Hồ Chí Minh','0981335512',1,'Hồ Chí Minh',1);
+INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VinFast - Chevrolet Đại Việt','Số 1 Đường Nguyễn Văn Linh, Phường Gia Thụy, Quận Long Biên, Thành phố Hà Nội','1900636903',3,'Hà Nội',1);
+INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VinFast Phạm Văn Đồng','Số 166 Phạm Văn Đồng, Phường Xuân Đỉnh, Quận Bắc Từ Liêm, Thành phố Hà Nội','0866391155',3,'Hà Nội',1);
+INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VIN3S Thủy Nguyên','Phố Mới, Đội 1, xã Tân Dương, huyện Thủy Nguyên, Hải Phòng','0904231009',2,'Hải Phòng',1);
+INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VIN3S Vũng Tàu','1-3 Nguyễn Lương Bằng, P. 9, TP. Vũng Tàu, Bà Rịa - Vũng Tàu','0933866989',2,'Bà Rịa - Vũng Tàu',1);
+INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VIN3S Phú Mỹ','328 Đường Độc Lập, Khu phố Quảng Phú, P. Phú Mỹ, TX. Phú Mỹ, Bà Rịa - Vũng Tàu','0902912022',4,'Bà Rịa - Vũng Tàu',1);
+INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VIN3S Phúc Yên','288 đường Hai Bà Trưng, tổ 4, P. Hùng Vương, TP. Phúc Yên, Vĩnh Phúc','0947105662',3,'Vĩnh Phúc',1);
+INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VIN3S Tuyên Quang','Tổ 10, P. Phan Thiết, TP. Tuyên Quang','0932118188',3,'Tuyên Quang',1);
+INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VIN3S Nghi Sơn','136,138 đường Quang Trung, P. Hải Hòa, Nghi Sơn, Thanh Hóa','0865723689',3,'Thanh Hóa',1);
+INSERT INTO tb_showroom(name,address,hotline,model,city,status) VALUES ('Showroom VIN3S Đại Từ','Phố Đình, Thị Trấn Hùng Sơn, Huyện Đại Từ, Thái Nguyên','0934967338',5,'Thái Nguyên',1);

@@ -42,7 +42,6 @@ public class Showroom implements Serializable{
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "showroom_id")
-    @JsonBackReference
     private List<ShowroomCar> showroomCars;
 
     public Showroom() {
