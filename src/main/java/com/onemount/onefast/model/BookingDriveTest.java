@@ -32,6 +32,10 @@ public class BookingDriveTest implements Serializable{
     @JoinColumn(name = "car_id")
     private Car car;
 
+    @OneToOne(cascade = CascadeType.MERGE, orphanRemoval = true)
+    @JoinColumn(name = "showroom_id")
+    private Showroom showroom;
+
     @Column(name = "drive_date")
     private String driveDate;
 
@@ -43,27 +47,22 @@ public class BookingDriveTest implements Serializable{
         
     }
 
-
-    public BookingDriveTest(String fullname, String phone, String email, Car car, String driveDate, int status) {
-        this.fullname = fullname;
-        this.phone = phone;
-        this.email = email;
-        this.car = car;
-        this.driveDate = driveDate;
-        this.status = status;
-    }
+    
 
 
-    public BookingDriveTest(Long id, String fullname, String phone, String email, Car car, String driveDate,
-            int status) {
+    public BookingDriveTest(Long id, String fullname, String phone, String email, Car car, Showroom showroom,
+            String driveDate, int status) {
         this.id = id;
         this.fullname = fullname;
         this.phone = phone;
         this.email = email;
         this.car = car;
+        this.showroom = showroom;
         this.driveDate = driveDate;
         this.status = status;
     }
+
+
 
 
     public Long getId() {
@@ -116,6 +115,16 @@ public class BookingDriveTest implements Serializable{
     }
 
 
+    public Showroom getShowroom() {
+        return showroom;
+    }
+
+
+    public void setShowroom(Showroom showroom) {
+        this.showroom = showroom;
+    }
+
+
     public String getDriveDate() {
         return driveDate;
     }
@@ -133,6 +142,9 @@ public class BookingDriveTest implements Serializable{
 
     public void setStatus(int status) {
         this.status = status;
-    }   
+    }
+
+    
+    
     
 }

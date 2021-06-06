@@ -24,8 +24,7 @@ public class Car implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "car_id")
+    @OneToMany(mappedBy = "car")
     private List<ShowroomCar> showroomCars;
 
     @OneToOne(cascade = CascadeType.MERGE, orphanRemoval = true)
