@@ -20,11 +20,9 @@ public class CarServiceImpl implements CarService{
     @Autowired
     private SpecificationsRepository speRepository;
     
+    @Override
     public List<Car> findAll() {
-        return carRepository.findAll();
+        return carRepository.findAll(); 
     }
 
-    public void generateSampleData() {
-        
-    }
 }
