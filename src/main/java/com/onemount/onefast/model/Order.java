@@ -38,7 +38,7 @@ public class Order implements Serializable{
     private float totalPrice;
 
     @Column(name = "payment_method", length = 100)  // Trả thẳng, trả góp
-    private String payment_method;
+    private String paymentMethod;
 
     @Transient
     private float deposit;
@@ -58,27 +58,14 @@ public class Order implements Serializable{
 
     }
 
-    public Order(Long userId, Car car, float discount, float totalPrice, String payment_method, float deposit,
-            Date createdAt, Date modifiedAt, int status) {
-        this.userId = userId;
-        this.car = car;
-        this.discount = discount;
-        this.totalPrice = totalPrice;
-        this.payment_method = payment_method;
-        this.deposit = deposit;
-        this.createdAt = createdAt;
-        this.modifiedAt = modifiedAt;
-        this.status = status;
-    }
-
-    public Order(Long id, Long userId, Car car, float discount, float totalPrice, String payment_method, float deposit,
+    public Order(Long id, Long userId, Car car, float discount, float totalPrice, String paymentMethod, float deposit,
             Date createdAt, Date modifiedAt, int status) {
         this.id = id;
         this.userId = userId;
         this.car = car;
         this.discount = discount;
         this.totalPrice = totalPrice;
-        this.payment_method = payment_method;
+        this.paymentMethod = paymentMethod;
         this.deposit = deposit;
         this.createdAt = createdAt;
         this.modifiedAt = modifiedAt;
@@ -125,12 +112,12 @@ public class Order implements Serializable{
         this.totalPrice = totalPrice;
     }
 
-    public String getPayment_method() {
-        return payment_method;
+    public String getPaymentMethod() {
+        return paymentMethod;
     }
 
-    public void setPayment_method(String payment_method) {
-        this.payment_method = payment_method;
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 
     public float getDeposit() {
@@ -164,6 +151,7 @@ public class Order implements Serializable{
     public void setStatus(int status) {
         this.status = status;
     }
+
     
 
 }
