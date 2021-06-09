@@ -40,8 +40,7 @@ public class Showroom implements Serializable{
     @Column(name = "status")
     private int status;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "showroom_id")
+    @OneToMany(mappedBy = "showroom")
     private List<ShowroomCar> showroomCars;
 
     public Showroom() {
