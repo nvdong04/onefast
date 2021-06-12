@@ -1,13 +1,18 @@
 package com.onemount.onefast.model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -42,23 +47,21 @@ public class User implements Serializable{
     @Column(name = "is_active")
     private boolean isActive;
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST})
+    @JoinTable(
+            name = "tb_user_role",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"))
+    private Collection<Role> roles;
+
     public User() {
         
     }
 
-    public User(String fullname, String phone, String email, String password, Date createdAt, Date modifiedAt,
-            boolean isActive) {
-        this.fullname = fullname;
-        this.phone = phone;
-        this.email = email;
-        this.password = password;
-        this.createdAt = createdAt;
-        this.modifiedAt = modifiedAt;
-        this.isActive = isActive;
-    }
-
     public User(Long id, String fullname, String phone, String email, String password, Date createdAt, Date modifiedAt,
-            boolean isActive) {
+            boolean isActive, Collection<Role> roles) {
         this.id = id;
         this.fullname = fullname;
         this.phone = phone;
@@ -67,6 +70,7 @@ public class User implements Serializable{
         this.createdAt = createdAt;
         this.modifiedAt = modifiedAt;
         this.isActive = isActive;
+        this.roles = roles;
     }
 
     public Long getId() {
@@ -133,7 +137,14 @@ public class User implements Serializable{
         this.isActive = isActive;
     }
 
-    
+    public Collection<Role> getRoles() {
+        return roles;
+    }
 
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
+    }
+
+    
     
 }
