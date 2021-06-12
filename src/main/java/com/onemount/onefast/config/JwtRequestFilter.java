@@ -3,6 +3,7 @@ package com.onemount.onefast.config;
 import com.onemount.onefast.dto.MyUser;
 import com.onemount.onefast.service.UserService;
 import io.jsonwebtoken.ExpiredJwtException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
