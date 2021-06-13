@@ -108,8 +108,8 @@ public class Order implements Serializable{
         return totalPrice;
     }
 
-    public void setTotalPrice(float totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setTotalPrice() {
+        this.totalPrice = car.getPrice() - car.getPrice() * (this.discount/ car.getPrice());
     }
 
     public String getPaymentMethod() {
