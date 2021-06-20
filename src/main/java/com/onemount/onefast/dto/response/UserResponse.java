@@ -1,4 +1,4 @@
-package com.onemount.onefast.response;
+package com.onemount.onefast.dto.response;
 
 import java.io.Serializable;
 import java.util.List;

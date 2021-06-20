@@ -31,6 +31,9 @@ public class Order implements Serializable{
     @JoinColumn(name = "car_id")
     private Car car;
 
+    @Column(name = "car_color_id")
+    private Long carColorId;
+
     @Column(name = "discount")
     private float discount;
 
@@ -110,6 +113,14 @@ public class Order implements Serializable{
 
     public void setTotalPrice() {
         this.totalPrice = car.getPrice() - car.getPrice() * (this.discount/ car.getPrice());
+    }
+
+    public Long getCarColorId() {
+        return carColorId;
+    }
+
+    public void setCarColorId(Long carColorId) {
+        this.carColorId = carColorId;
     }
 
     public String getPaymentMethod() {

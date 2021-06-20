@@ -1,4 +1,4 @@
-package com.onemount.onefast.request;
+package com.onemount.onefast.dto.request;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.onemount.onefast.controller;
+package com.onemount.onefast.controller.api;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "api/rest/showroom")
+@RequestMapping(value = "api/public/showroom")
 public class ShowroomController {
 
     @Autowired

@@ -1,9 +1,9 @@
-package com.onemount.onefast.controller;
+package com.onemount.onefast.controller.api;
 
 import com.onemount.onefast.config.JwtTokenUtil;
 import com.onemount.onefast.dto.MyUser;
-import com.onemount.onefast.request.JWTRequest;
-import com.onemount.onefast.response.JWTResponse;
+import com.onemount.onefast.dto.request.JWTRequest;
+import com.onemount.onefast.dto.response.JWTResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

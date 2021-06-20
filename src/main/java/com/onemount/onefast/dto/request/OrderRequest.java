@@ -1,30 +1,25 @@
-package com.onemount.onefast.dto;
+package com.onemount.onefast.dto.request;
 
-import com.onemount.onefast.model.Car;
-
-import java.util.Date;
-
-public class OrderDTO {
-
+public class OrderRequest {
     private Long userId;
 
     private Long carId;
+
+    private Long carColorId;
 
     private float discount;
 
     private String paymentMethod;
 
-    private int status;
-
-    public OrderDTO() {
-    }
-
-    public OrderDTO(Long userId, Long carId, float discount, String paymentMethod, int status) {
+    public OrderRequest(Long userId, Long carId, Long carColorId, float discount, String paymentMethod) {
         this.userId = userId;
         this.carId = carId;
+        this.carColorId = carColorId;
         this.discount = discount;
         this.paymentMethod = paymentMethod;
-        this.status = status;
+    }
+
+    public OrderRequest() {
     }
 
     public Long getUserId() {
@@ -43,6 +38,14 @@ public class OrderDTO {
         this.carId = carId;
     }
 
+    public Long getCarColorId() {
+        return carColorId;
+    }
+
+    public void setCarColorId(Long carColorId) {
+        this.carColorId = carColorId;
+    }
+
     public float getDiscount() {
         return discount;
     }
@@ -57,13 +60,5 @@ public class OrderDTO {
 
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
     }
 }

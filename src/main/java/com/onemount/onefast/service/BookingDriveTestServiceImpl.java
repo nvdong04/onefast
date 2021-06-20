@@ -1,11 +1,11 @@
 package com.onemount.onefast.service;
 
 import java.time.LocalDate;
+import java.util.List;
 
-import com.onemount.onefast.dto.BookingDriveTestDTO;
+import com.onemount.onefast.dto.request.BookingRequest;
 import com.onemount.onefast.model.BookingDriveTest;
 
-import com.onemount.onefast.model.Showroom;
 import com.onemount.onefast.repository.BookingDriveTestRepository;
 import com.onemount.onefast.repository.CarRepository;
 import com.onemount.onefast.repository.ShowroomRepository;
@@ -27,12 +27,11 @@ public class BookingDriveTestServiceImpl implements BookingDriveTestService {
     private BookingDriveTestRepository bookingDriveTestRepository;
 
     @Override
-    public BookingDriveTest booking(BookingDriveTestDTO bTestDTO) {
+    public BookingDriveTest createBooking(BookingRequest bTestDTO) {
         LocalDate date = LocalDate.parse(bTestDTO.getDriveDate());
         if(LocalDate.now().isAfter(date)) {
-            //throw 
+            //throw new Exception("");
         }
-        
         BookingDriveTest bookingDriveTest = new BookingDriveTest();
         bookingDriveTest.setFullname(bTestDTO.getFullname());
         bookingDriveTest.setEmail(bTestDTO.getEmail());
@@ -42,6 +41,11 @@ public class BookingDriveTestServiceImpl implements BookingDriveTestService {
         bookingDriveTest.setShowroom(showroomRepository.findById(bTestDTO.getShowroomId()).get());
         bookingDriveTest.setCar(carRepository.findById(bTestDTO.getCarId()).get());
         return bookingDriveTestRepository.saveAndFlush(bookingDriveTest);
+    }
+
+    @Override
+    public List<BookingDriveTest> findAll() {
+        return bookingDriveTestRepository.findAll();
     }
 
     @Override
