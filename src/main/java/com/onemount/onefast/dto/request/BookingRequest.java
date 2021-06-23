@@ -1,4 +1,4 @@
-package com.onemount.onefast.dto;
+package com.onemount.onefast.dto.request;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -9,7 +9,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-public class BookingDriveTestDTO implements Serializable {
+public class BookingRequest implements Serializable {
     // private Long id;
 
     @NotEmpty(message = "{constraints.not-empty}")
@@ -35,7 +35,7 @@ public class BookingDriveTestDTO implements Serializable {
     //private int status;
 
 
-    public BookingDriveTestDTO(@NotEmpty(message = "{constraints.not-empty}") @Size(min = 4, max = 100, message = "{constraints.min-4-max-100}") String fullname, @NotEmpty(message = "{constraints.not-empty}") String phone, @NotEmpty(message = "{constraints.not-empty}") @Email(message = "{constraints.email}") String email, @NotEmpty(message = "{constraints.not-empty}") String driveDate, @NotEmpty(message = "{constraints.not-empty}") Long showroomId, @NotEmpty(message = "{constraints.not-empty}") Long carId) {
+    public BookingRequest(@NotEmpty(message = "{constraints.not-empty}") @Size(min = 4, max = 100, message = "{constraints.min-4-max-100}") String fullname, @NotEmpty(message = "{constraints.not-empty}") String phone, @NotEmpty(message = "{constraints.not-empty}") @Email(message = "{constraints.email}") String email, @NotEmpty(message = "{constraints.not-empty}") String driveDate, @NotEmpty(message = "{constraints.not-empty}") Long showroomId, @NotEmpty(message = "{constraints.not-empty}") Long carId) {
         this.fullname = fullname;
         this.phone = phone;
         this.email = email;

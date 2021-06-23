@@ -43,15 +43,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
   protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
-                // dont authenticate this particular request
-                .authorizeRequests().antMatchers("/api/rest/car", "/login").permitAll().
-                // all other requests need to be authenticated
+                .authorizeRequests().antMatchers("/api/public/**", "/login").permitAll().
                         anyRequest().authenticated().and().
-                // make sure we use stateless session; session won't be used to
-                // store user's state.
                         exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
+ 
         // Add a filter to validate the tokens with every request
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 //        http = http.cors().and().csrf().disable();

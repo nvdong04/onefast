@@ -1,6 +1,4 @@
-package com.onemount.onefast.response;
-
-import com.onemount.onefast.model.Role;
+package com.onemount.onefast.dto.response;
 
 import java.io.Serializable;
 
