@@ -21,12 +21,12 @@ public class ShowroomCar {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "showroom_id")
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonBackReference
+    @JoinColumn(name = "showroom_id")
     private Showroom showroom;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "car_id")
     @JsonBackReference
     private Car car;

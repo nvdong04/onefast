@@ -1,6 +1,7 @@
 package com.onemount.onefast.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -15,18 +16,6 @@ public class Car implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @OneToMany(mappedBy = "car")
-    private List<ShowroomCar> showroomCars;
-
-    @OneToOne(cascade = CascadeType.MERGE, orphanRemoval = true)
-    @JoinColumn(name = "specifications_id")
-    private Specifications specifications;
-
-    @JsonManagedReference
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
-    @JoinColumn(name = "car_id")
-    private List<CarColor> carColors;
 
     @Column(name = "name", nullable = false, length = 100)
     private String name;
@@ -51,6 +40,19 @@ public class Car implements Serializable{
 
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
+
+    @OneToMany(mappedBy = "car", fetch = FetchType.LAZY)
+    @JsonBackReference
+    private List<ShowroomCar> showroomCars = new ArrayList<>();
+
+    @OneToOne(cascade = CascadeType.MERGE, orphanRemoval = true)
+    @JoinColumn(name = "specifications_id")
+    private Specifications specifications;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
+    @JoinColumn(name = "car_id")
+    @JsonManagedReference
+    private List<CarColor> carColors = new ArrayList<>();
 
     public Car() {}
 
