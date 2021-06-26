@@ -43,16 +43,21 @@ public class Car implements Serializable{
 
     @OneToMany(mappedBy = "car", fetch = FetchType.LAZY)
     @JsonBackReference
-    private List<ShowroomCar> showroomCars = new ArrayList<>();
+    private List<ShowroomCar> showroomCars;
 
     @OneToOne(cascade = CascadeType.MERGE, orphanRemoval = true)
     @JoinColumn(name = "specifications_id")
     private Specifications specifications;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
+    @OneToMany(cascade = {
+            CascadeType.ALL,
+            CascadeType.MERGE,
+            CascadeType.REFRESH,
+            CascadeType.REMOVE
+    }, orphanRemoval = true,fetch = FetchType.LAZY)
     @JoinColumn(name = "car_id")
     @JsonManagedReference
-    private List<CarColor> carColors = new ArrayList<>();
+    private List<CarColor> carColors;
 
     public Car() {}
 

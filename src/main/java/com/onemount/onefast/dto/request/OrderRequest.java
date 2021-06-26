@@ -1,33 +1,21 @@
 package com.onemount.onefast.dto.request;
 
 public class OrderRequest {
-    private Long userId;
+    //private Long userId;
 
     private Long carId;
 
-    private Long carColorId;
+    private String carColor;
 
     private float discount;
 
     private String paymentMethod;
 
-    public OrderRequest(Long userId, Long carId, Long carColorId, float discount, String paymentMethod) {
-        this.userId = userId;
+    public OrderRequest(Long carId, String carColor, float discount, String paymentMethod) {
         this.carId = carId;
-        this.carColorId = carColorId;
+        this.carColor = carColor;
         this.discount = discount;
         this.paymentMethod = paymentMethod;
-    }
-
-    public OrderRequest() {
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
     }
 
     public Long getCarId() {
@@ -38,12 +26,12 @@ public class OrderRequest {
         this.carId = carId;
     }
 
-    public Long getCarColorId() {
-        return carColorId;
+    public String getCarColor() {
+        return carColor;
     }
 
-    public void setCarColorId(Long carColorId) {
-        this.carColorId = carColorId;
+    public void setCarColor(String carColor) {
+        this.carColor = carColor;
     }
 
     public float getDiscount() {

@@ -1,19 +1,17 @@
 package com.onemount.onefast.model;
 
+import lombok.Builder;
+
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "tb_booking_drive_test")
+@Table(name = "tb_booking_drive_test", indexes = {
+        @Index(name = "idx_phone", columnList = "phone"),
+        @Index(name = "idx_email", columnList = "email")
+})
+@Builder
 public class BookingDriveTest implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,18 +38,14 @@ public class BookingDriveTest implements Serializable{
     private String driveDate;
 
     @Column(name = "status")
-    private int status;
-
+    @Enumerated(EnumType.ORDINAL)
+    private BookingType status;
 
     public BookingDriveTest() {
         
     }
-
-    
-
-
     public BookingDriveTest(Long id, String fullname, String phone, String email, Car car, Showroom showroom,
-            String driveDate, int status) {
+            String driveDate, BookingType status) {
         this.id = id;
         this.fullname = fullname;
         this.phone = phone;
@@ -61,9 +55,6 @@ public class BookingDriveTest implements Serializable{
         this.driveDate = driveDate;
         this.status = status;
     }
-
-
-
 
     public Long getId() {
         return id;
@@ -135,16 +126,14 @@ public class BookingDriveTest implements Serializable{
     }
 
 
-    public int getStatus() {
+    public BookingType getStatus() {
         return status;
     }
 
 
-    public void setStatus(int status) {
+    public void setStatus(BookingType status) {
         this.status = status;
     }
 
-    
-    
     
 }

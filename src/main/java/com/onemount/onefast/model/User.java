@@ -18,7 +18,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "tb_user")
+@Table(name = "tb_user", indexes = {
+        @Index(name = "idx_phone", columnList = "phone", unique = true),
+        @Index(name = "idx_email", columnList = "email", unique = true)
+})
 public class User implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -30,9 +30,10 @@ public class OrderController {
         return ResponseEntity.ok().body(orderService.createOrder(orderRequest));
     }
 
-    @PatchMapping
-    public void cancelOrder(@PathVariable Long id) {
-
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<String> cancelOrder(@PathVariable Long id) {
+        orderService.cancelOrder(id);
+        return ResponseEntity.ok().body("Cancel success!");
     }
 
     @GetMapping(value = "/current")

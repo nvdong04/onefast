@@ -37,10 +37,9 @@ public class OrderServiceImpl implements OrderService{
     public Order createOrder(OrderRequest orderRequest) {
         Order order = new Order();
         Car car = carRepository.findById(orderRequest.getCarId()).get();
-        CarColor carColor= carColorRepository.findById(orderRequest.getCarColorId()).orElseThrow();
-        car.setCarColors(Arrays.asList(carColor));
         order.setUserId(securityService.getCurrentUserId());
         order.setCar(car);
+        order.setCarColor(orderRequest.getCarColor());
         Date now = Calendar.getInstance().getTime();
         order.setDiscount(orderRequest.getDiscount());
         order.setPaymentMethod(orderRequest.getPaymentMethod());

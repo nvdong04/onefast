@@ -7,7 +7,9 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "tb_order")
+@Table(name = "tb_order", indexes = {
+    @Index(name = "idx_created_by_user", columnList = "user_id")
+})
 public class Order implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +22,8 @@ public class Order implements Serializable{
     @JoinColumn(name = "car_id")
     private Car car;
 
-    @Column(name = "car_color_id")
-    private Long carColorId;
+    @Column(name = "car_color")
+    private String carColor;
 
     @Column(name = "discount")
     private float discount;
@@ -51,11 +53,11 @@ public class Order implements Serializable{
 
     }
 
-    public Order(Long id, Long userId, Car car, Long carColorId, float discount, float totalPrice, String paymentMethod, float deposit, Date createdAt, Date modifiedAt, OrderType status) {
+    public Order(Long id, Long userId, Car car, String carColor, float discount, float totalPrice, String paymentMethod, float deposit, Date createdAt, Date modifiedAt, OrderType status) {
         this.id = id;
         this.userId = userId;
         this.car = car;
-        this.carColorId = carColorId;
+        this.carColor = carColor;
         this.discount = discount;
         this.totalPrice = totalPrice;
         this.paymentMethod = paymentMethod;
@@ -105,12 +107,12 @@ public class Order implements Serializable{
         this.totalPrice = car.getPrice() - car.getPrice() * (this.discount/ car.getPrice());
     }
 
-    public Long getCarColorId() {
-        return carColorId;
+    public String getCarColor() {
+        return carColor;
     }
 
-    public void setCarColorId(Long carColorId) {
-        this.carColorId = carColorId;
+    public void setCarColor(String carColor) {
+        this.carColor = carColor;
     }
 
     public String getPaymentMethod() {
