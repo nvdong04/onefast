@@ -3,9 +3,11 @@ package com.onemount.onefast.service;
 import com.onemount.onefast.dto.request.OrderRequest;
 import com.onemount.onefast.dto.response.OrderDTO;
 import com.onemount.onefast.model.Order;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface OrderService {
     Order createOrder(OrderRequest orderRequest);
     void cancelOrder(Long id);

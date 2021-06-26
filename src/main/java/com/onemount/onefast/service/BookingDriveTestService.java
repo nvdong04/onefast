@@ -7,7 +7,8 @@ import java.util.List;
 
 
 public interface BookingDriveTestService {
-   BookingDriveTest createBooking(BookingRequest bTestDTO);
+   BookingDriveTest createBooking(BookingRequest bookingRequest);
    List<BookingDriveTest> findAll();
-   void editBooking(BookingDriveTest bTest);
+   BookingDriveTest updateBooking(Long id,BookingRequest bookingRequest);
+   void cancelBooking(Long id);
 }

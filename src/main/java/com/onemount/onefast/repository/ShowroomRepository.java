@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ShowroomRepository extends JpaRepository<Showroom, Long> {
-    List<Showroom> findByCity(String city);
+    List<Showroom> findByCityLikeOrAddressLike(String city, String address);
 }

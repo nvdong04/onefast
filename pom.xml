@@ -74,8 +74,20 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-rest-webmvc -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-rest-webmvc</artifactId>
+		</dependency>
 
-<!--		&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.security/spring-security-jwt &ndash;&gt;-->
+
+
+		<!--		&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.security/spring-security-jwt &ndash;&gt;-->
 <!--		<dependency>-->
 <!--			<groupId>org.springframework.security</groupId>-->
 <!--			<artifactId>spring-security-jwt</artifactId>-->

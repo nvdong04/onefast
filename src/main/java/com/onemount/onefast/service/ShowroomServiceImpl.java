@@ -21,7 +21,7 @@ public class ShowroomServiceImpl implements ShowroomService{
 
     @Override
     public List<Showroom> findByCity(String city) {
-        return showroomRepository.findByCity(city);
+        return showroomRepository.findByCityLikeOrAddressLike(city,city);
     }
     
 }

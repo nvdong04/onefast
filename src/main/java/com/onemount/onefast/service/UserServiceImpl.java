@@ -73,6 +73,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    @Transactional
     public void createUser(UserDTO userDTO) {
        User user = new User();
        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));

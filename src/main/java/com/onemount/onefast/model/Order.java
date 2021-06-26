@@ -3,22 +3,13 @@ package com.onemount.onefast.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 
 @Entity
-@Table(name = "tb_order")
+@Table(name = "tb_order", indexes = {
+    @Index(name = "idx_created_by_user", columnList = "user_id")
+})
 public class Order implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,8 +22,8 @@ public class Order implements Serializable{
     @JoinColumn(name = "car_id")
     private Car car;
 
-    @Column(name = "car_color_id")
-    private Long carColorId;
+    @Column(name = "car_color")
+    private String carColor;
 
     @Column(name = "discount")
     private float discount;
@@ -55,17 +46,18 @@ public class Order implements Serializable{
     private Date modifiedAt;
 
     @Column(name = "status")
-    private int status;
+    @Enumerated(EnumType.ORDINAL)
+    private OrderType status;
 
     public Order() {
 
     }
 
-    public Order(Long id, Long userId, Car car, float discount, float totalPrice, String paymentMethod, float deposit,
-            Date createdAt, Date modifiedAt, int status) {
+    public Order(Long id, Long userId, Car car, String carColor, float discount, float totalPrice, String paymentMethod, float deposit, Date createdAt, Date modifiedAt, OrderType status) {
         this.id = id;
         this.userId = userId;
         this.car = car;
+        this.carColor = carColor;
         this.discount = discount;
         this.totalPrice = totalPrice;
         this.paymentMethod = paymentMethod;
@@ -108,19 +100,19 @@ public class Order implements Serializable{
     }
 
     public float getTotalPrice() {
-        return totalPrice;
+        return car.getPrice() - car.getPrice() * (getDiscount()/ 100);
     }
 
     public void setTotalPrice() {
         this.totalPrice = car.getPrice() - car.getPrice() * (this.discount/ car.getPrice());
     }
 
-    public Long getCarColorId() {
-        return carColorId;
+    public String getCarColor() {
+        return carColor;
     }
 
-    public void setCarColorId(Long carColorId) {
-        this.carColorId = carColorId;
+    public void setCarColor(String carColor) {
+        this.carColor = carColor;
     }
 
     public String getPaymentMethod() {
@@ -132,11 +124,11 @@ public class Order implements Serializable{
     }
 
     public float getDeposit() {
-        return deposit;
+        return (float) (getTotalPrice() * 0.2);
     }
 
-    public void setDeposit(float deposit) {
-        this.deposit = deposit;
+    public void setDeposit() {
+        this.deposit = (float) (getTotalPrice() * 0.2);
     }
 
     public Date getCreatedAt() {
@@ -155,14 +147,11 @@ public class Order implements Serializable{
         this.modifiedAt = modifiedAt;
     }
 
-    public int getStatus() {
+    public OrderType getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(OrderType status) {
         this.status = status;
     }
-
-    
-
 }
