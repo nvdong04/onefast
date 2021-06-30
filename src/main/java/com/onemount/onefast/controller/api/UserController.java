@@ -23,7 +23,7 @@ public class UserController {
 
 
     @GetMapping
-    public ResponseEntity<UserResponse> findByEmail() {
+    public ResponseEntity<UserResponse> getCurrentUser() {
         User currentUser = securityService.getCurrentUser();
         UserResponse userResponse = new UserResponse();
         userResponse.setEmail(currentUser.getEmail());

@@ -42,12 +42,12 @@ public class OrderServiceImpl implements OrderService{
         order.setCarColor(orderRequest.getCarColor());
         Date now = Calendar.getInstance().getTime();
         order.setDiscount(orderRequest.getDiscount());
-        order.setPaymentMethod(orderRequest.getPaymentMethod());
+//        order.setPaymentMethod(orderRequest.getPaymentMethod());
         order.setCreatedAt(now);
         order.setModifiedAt(now);
         order.setTotalPrice();
         order.setDeposit();
-        order.setStatus(OrderType.PAID);
+        order.setStatus(OrderType.WAITING);
         return orderRepository.saveAndFlush(order);
     }
 
