@@ -31,8 +31,14 @@ public class Order implements Serializable{
     @Transient
     private float totalPrice;
 
-    @Column(name = "payment_method", length = 100)  // Trả thẳng, trả góp
-    private String paymentMethod;
+//    @Column(name = "payment_method", length = 100)  // Trả thẳng, trả góp
+//    private String paymentMethod;
+
+    //private int paymentMonth;
+
+    //private int interestRate;
+
+    //private float prepay; // số tiền trả trước
 
     @Transient
     private float deposit;
@@ -53,14 +59,13 @@ public class Order implements Serializable{
 
     }
 
-    public Order(Long id, Long userId, Car car, String carColor, float discount, float totalPrice, String paymentMethod, float deposit, Date createdAt, Date modifiedAt, OrderType status) {
+    public Order(Long id, Long userId, Car car, String carColor, float discount, float totalPrice, float deposit, Date createdAt, Date modifiedAt, OrderType status) {
         this.id = id;
         this.userId = userId;
         this.car = car;
         this.carColor = carColor;
         this.discount = discount;
         this.totalPrice = totalPrice;
-        this.paymentMethod = paymentMethod;
         this.deposit = deposit;
         this.createdAt = createdAt;
         this.modifiedAt = modifiedAt;
@@ -113,14 +118,6 @@ public class Order implements Serializable{
 
     public void setCarColor(String carColor) {
         this.carColor = carColor;
-    }
-
-    public String getPaymentMethod() {
-        return paymentMethod;
-    }
-
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
     }
 
     public float getDeposit() {

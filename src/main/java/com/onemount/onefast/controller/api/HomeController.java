@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping(value = "")
 public class HomeController {
 
     @Autowired
@@ -30,7 +30,7 @@ public class HomeController {
         return "Welcome!";
     }
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public ResponseEntity<JWTResponse> login(@RequestBody @Valid JWTRequest request) {
         try {
             Authentication authenticate = authenticationManager.authenticate(
