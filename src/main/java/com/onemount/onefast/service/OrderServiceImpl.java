@@ -42,12 +42,12 @@ public class OrderServiceImpl implements OrderService{
         order.setCarColor(orderRequest.getCarColor());
         Date now = Calendar.getInstance().getTime();
         order.setDiscount(orderRequest.getDiscount());
-//        order.setPaymentMethod(orderRequest.getPaymentMethod());
+        order.setPaymentMethod(orderRequest.getPaymentMethod());
         order.setCreatedAt(now);
         order.setModifiedAt(now);
         order.setTotalPrice();
         order.setDeposit();
-        order.setStatus(OrderType.WAITING);
+        order.setStatus(checkStatus(orderRequest.getStatus()));
         return orderRepository.saveAndFlush(order);
     }
 
@@ -86,7 +86,37 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public void updateOrder(Order order) {
+    @Transactional
+    public void updateOrder(Long id,OrderRequest orderRequest) {
+        Order order = orderRepository.findById(id).get();
+        if (order != null) {
+            Car car = carRepository.findById(orderRequest.getCarId()).get();
+            order.setCar(car);
+            order.setCarColor(orderRequest.getCarColor());
+            Date now = Calendar.getInstance().getTime();
+            order.setDiscount(orderRequest.getDiscount());
+            order.setPaymentMethod(orderRequest.getPaymentMethod());
+            order.setModifiedAt(now);
+            order.setTotalPrice();
+            order.setDeposit();
+            order.setStatus(checkStatus(orderRequest.getStatus()));
+            orderRepository.saveAndFlush(order);
+        } else {
+            throw new ResourceNotFoundException("Cannot find order with order id.");
+        }
+    }
 
+    public OrderType checkStatus(String status) {
+        if (OrderType.DONE.name().equals(status)) {
+            return OrderType.DONE;
+        }
+
+        if (OrderType.CANCEL.name().equals(status)) {
+            return OrderType.CANCEL;
+        }
+        if (OrderType.WAITING.name().equals(status)) {
+            return OrderType.WAITING;
+        }
+        return OrderType.WAITING;
     }
 }
