@@ -36,6 +36,12 @@ public class OrderController {
         return ResponseEntity.ok().body("Cancel success!");
     }
 
+    @PutMapping(value = "/update/{id}")
+    public ResponseEntity<String> updateOrder(@PathVariable Long id,@RequestBody @Valid OrderRequest orderRequest) {
+        orderService.updateOrder(id, orderRequest);
+        return ResponseEntity.ok().body("Update success!");
+    }
+
     @GetMapping(value = "/current")
     public ResponseEntity<List<Order>> findByCurrentUser() {
 //        List<OrderDTO> orderDTOS = orderService.findByUserId(securityService.getCurrentUserId())

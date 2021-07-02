@@ -9,14 +9,9 @@ public class OrderRequest {
 
     private float discount;
 
-//    private String paymentMethod;
+    private String paymentMethod;
 
-    public OrderRequest(Long carId, String carColor, float discount) {
-        this.carId = carId;
-        this.carColor = carColor;
-        this.discount = discount;
-        //this.paymentMethod = paymentMethod;
-    }
+    private String status;
 
     public Long getCarId() {
         return carId;
@@ -42,11 +37,19 @@ public class OrderRequest {
         this.discount = discount;
     }
 
-//    public String getPaymentMethod() {
-//        return paymentMethod;
-//    }
-//
-//    public void setPaymentMethod(String paymentMethod) {
-//        this.paymentMethod = paymentMethod;
-//    }
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
