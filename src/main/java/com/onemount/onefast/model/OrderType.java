@@ -2,6 +2,7 @@ package com.onemount.onefast.model;
 
 public enum OrderType {
     DONE,
-    CANCEL, // đơn hàng bị hủy
-    WAITING
+    CANCELED, // đơn hàng bị hủy
+    PENDING,
+    DEPOSITED
 }

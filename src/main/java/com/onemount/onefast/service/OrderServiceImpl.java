@@ -56,7 +56,7 @@ public class OrderServiceImpl implements OrderService{
     public void cancelOrder(Long id) {
         Order order = orderRepository.findById(id).get();
         if (order != null) {
-            order.setStatus(OrderType.CANCEL);
+            order.setStatus(OrderType.CANCELED);
             orderRepository.saveAndFlush(order);
         } else {
             throw new ResourceNotFoundException("Cannot find order with order id.");
@@ -111,12 +111,12 @@ public class OrderServiceImpl implements OrderService{
             return OrderType.DONE;
         }
 
-        if (OrderType.CANCEL.name().equals(status)) {
-            return OrderType.CANCEL;
+        if (OrderType.CANCELED.name().equals(status)) {
+            return OrderType.CANCELED;
         }
-        if (OrderType.WAITING.name().equals(status)) {
-            return OrderType.WAITING;
+        if (OrderType.PENDING.name().equals(status)) {
+            return OrderType.PENDING;
         }
-        return OrderType.WAITING;
+        return OrderType.PENDING;
     }
 }
