@@ -32,13 +32,14 @@ public class OrderTimeout {
         //Calendar now = Calendar.;
         //long t= now.getTimeInMillis();
         //Date afterAddingTenMins=new Date(t + (10 * ONE_MINUTE_IN_MILLIS));
-        LocalDate localDate = LocalDate.now();
-        List<Order> orders = orderService.findAll();
-        orders.stream().forEach(order -> {
-            LocalDateTime localDateTime = DateTimeUtils.convertToLocalDateTimeViaMilisecond(order.getCreatedAt()).plus(Duration.of(10, ChronoUnit.MINUTES));
-           if (order.getStatus() == OrderType.WAITING && localDateTime.isAfter(LocalDateTime.now())){
-               order.setStatus(OrderType.CANCEL);
-           }
-        });
+
+//        LocalDate localDate = LocalDate.now();
+//        List<Order> orders = orderService.findAll();
+//        orders.stream().forEach(order -> {
+//            LocalDateTime localDateTime = DateTimeUtils.convertToLocalDateTimeViaMilisecond(order.getCreatedAt()).plus(Duration.of(10, ChronoUnit.MINUTES));
+//           if (order.getStatus() == OrderType.PENDING && localDateTime.isAfter(LocalDateTime.now())){
+//               order.setStatus(OrderType.CANCELED);
+//           }
+//        });
     }
 }
