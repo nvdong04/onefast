@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "api/public/order")
@@ -28,6 +27,11 @@ public class OrderController {
     @PostMapping
     public ResponseEntity<Order> createOrder(@RequestBody @Valid OrderRequest orderRequest) {
         return ResponseEntity.ok().body(orderService.createOrder(orderRequest));
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Order> findOrderById(@PathVariable Long id) {
+        return ResponseEntity.ok().body(orderService.findById(id));
     }
 
     @PutMapping(value = "/{id}")
@@ -70,4 +74,6 @@ public class OrderController {
         List<Order> orders =  orderService.findByUserId(securityService.getCurrentUserId());
         return ResponseEntity.ok().body(orders);
     }
+
+
 }
