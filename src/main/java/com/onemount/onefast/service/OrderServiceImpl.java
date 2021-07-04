@@ -117,6 +117,9 @@ public class OrderServiceImpl implements OrderService{
         if (OrderType.PENDING.name().equals(status)) {
             return OrderType.PENDING;
         }
+        if (OrderType.DEPOSITED.name().equals(status)) {
+            return OrderType.DEPOSITED;
+        }
         return OrderType.PENDING;
     }
 }
